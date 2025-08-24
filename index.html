@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Createverse - Choisir un pseudo</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #1a1a1a; color: white; text-align: center; }
+    .box { margin: 100px auto; padding: 30px; background: #2b2b2b; border-radius: 12px; width: 400px; }
+    input, button { padding: 10px; margin-top: 10px; width: 90%; border-radius: 6px; border: none; }
+    button { background: #5865F2; color: white; font-weight: bold; cursor: pointer; }
+    button:hover { background: #4752c4; }
+    .fade-in { animation: fadeIn 1.5s; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  </style>
+</head>
+<body>
+  <div class="box fade-in">
+    <h2>Bienvenue sur Createverse !</h2>
+    <p>Choisissez un pseudo Minecraft unique et acceptez nos conditions.</p>
+    <form action="http://localhost:5000/set_pseudo" method="post">
+      <input type="text" name="pseudo" placeholder="Votre pseudo Minecraft" required><br>
+      <input type="hidden" id="email" name="email">
+      <input type="hidden" id="discord_id" name="discord_id">
+      <label>
+        <input type="checkbox" name="accept" required>
+        J’accepte la <a href="https://djy-create.github.io/createverse-legal/politique.html" target="_blank">politique de confidentialité</a>
+        et les <a href="https://djy-create.github.io/createverse-legal/conditions.html" target="_blank">conditions d’utilisation</a>.
+      </label><br>
+      <button type="submit">✅ Valider</button>
+    </form>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("email").value = params.get("email") || "";
+    document.getElementById("discord_id").value = params.get("discord_id") || "";
+  </script>
+</body>
+</html>
