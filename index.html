@@ -2,37 +2,78 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Createverse - Choisir un pseudo</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #202225; color: white; text-align: center; padding: 50px; }
-    .card { background: #2f3136; padding: 30px; border-radius: 15px; width: 400px; margin: auto; animation: fadeIn 1.2s ease; }
-    input, button { margin-top: 15px; padding: 12px; border-radius: 8px; border: none; width: 100%; }
-    input { background: #40444b; color: white; }
-    button { background: #5865F2; color: white; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
-    button:hover { transform: scale(1.05); background: #4752C4; }
-    @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2e2e47);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 400px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 { margin-bottom: 20px; color: #00ffcc; }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    input {
+      background: #2e2e47;
+      color: white;
+    }
+    button {
+      background: #5865F2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover { transform: scale(1.05); }
+    label { font-size: 14px; }
+    a { color: #00ffcc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h2>Bienvenue dans Createverse !</h2>
-    <p>Choisissez un pseudo Minecraft unique et acceptez nos conditions.</p>
-    <form action="http://localhost:5000/set_pseudo" method="post">
-      <input type="text" name="pseudo" placeholder="Votre pseudo Minecraft" required>
+  <div class="container">
+    <h1>Choisissez votre pseudo</h1>
+    <form method="POST" action="http://localhost:5000/set_pseudo">
       <input type="hidden" name="discord_id" id="discord_id">
       <input type="hidden" name="email" id="email">
+      <input type="text" name="pseudo" placeholder="Entrez votre pseudo Minecraft" required>
       <label>
         <input type="checkbox" name="accept" required>
-        J’accepte la <a href="https://djy-create.github.io/createverse-legal/politique.html" target="_blank">politique</a> et les 
-        <a href="https://djy-create.github.io/createverse-legal/conditions.html" target="_blank">conditions</a>.
+        En cliquant ici vous acceptez les 
+        <a href="https://djy-create.github.io/createverse-legal/politique.html" target="_blank">Politiques</a> 
+        et 
+        <a href="https://djy-create.github.io/createverse-legal/conditions.html" target="_blank">Conditions</a>
+        du launcher Createverse.<br>
+        Pour plus d’infos : <b>Launchercreateverse@gmail.com</b>
       </label>
-      <button type="submit">✅ Valider</button>
+      <button type="submit">✅ Valider mon pseudo</button>
     </form>
   </div>
+
   <script>
     const params = new URLSearchParams(window.location.search);
-    document.getElementById("discord_id").value = params.get("discord_id") || "";
-    document.getElementById("email").value = params.get("email") || "";
+    document.getElementById("discord_id").value = params.get("discord_id");
+    document.getElementById("email").value = params.get("email");
   </script>
 </body>
 </html>
