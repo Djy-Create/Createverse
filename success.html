@@ -2,19 +2,52 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Succès</title>
+  <title>Createverse - Succès</title>
   <style>
-    body { background: #1a1a1a; color: white; text-align: center; font-family: Arial, sans-serif; }
-    .box { margin: 100px auto; padding: 30px; background: #2b2b2b; border-radius: 12px; width: 400px; }
-    h2 { color: #3C8527; }
-    .pulse { animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0% { transform: scale(1);} 50% { transform: scale(1.1);} 100% { transform: scale(1);} }
+    body {
+      background: #1a1a1a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    header {
+      background: #2b2b2b;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    h1 {
+      color: #4CAF50;
+      animation: bounce 1s infinite alternate;
+    }
+    p {
+      font-size: 18px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
-  <div class="box pulse">
-    <h2>✅ Pseudo enregistré avec succès !</h2>
-    <p>Vous pouvez fermer cette fenêtre et revenir au launcher.</p>
-  </div>
+  <header>
+    <img src="ad083f1c-fdcb-410a-9fbe-25cb6a829925.png" alt="Logo Createverse">
+    <h2>Createverse Launcher</h2>
+  </header>
+
+  <h1>✅ Pseudo enregistré avec succès !</h1>
+  <p>Vous pouvez fermer cette fenêtre et revenir au launcher.<br>
+  Bon jeu dans <b>Createverse</b> 🎮</p>
 </body>
 </html>
